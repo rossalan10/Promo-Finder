@@ -1,0 +1,88 @@
+=IF(R2="ON",
+
+// No sort filter checks
+
+IF(AND(J4="No",J5="No",J6="No",M4="No",M5="No",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&")"),
+
+// No sort Misc filters checks
+IF(AND(J4="No",J5="No",J6="No",M4="Yes",M5="No",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&")"),
+IF(AND(J4="No",J5="No",J6="No",M4="Yes",M5="Yes",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (Y >= "&E6&") and (L >= "&E5&")"),
+IF(AND(J4="No",J5="No",J6="No",M4="Yes",M5="No",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&")"),
+IF(AND(J4="No",J5="No",J6="No",M4="No",M5="Yes",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y >= "&E6&") and (L >= "&E5&")"),
+IF(AND(J4="No",J5="No",J6="No",M4="Yes",M5="Yes",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (Y >= "&E6&") and (L >= "&E5&")"),
+IF(AND(J4="No",J5="No",J6="No",M4="No",M5="Yes",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y >= "&E6&") and (L >= "&E5&")"),
+IF(AND(J4="No",J5="No",J6="No",M4="No",M5="No",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&")"),
+
+
+
+// Most time sort filter checks
+IF(AND(J4="Yes",J5="No",J6="No",M4="No",M5="No",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by Y"),
+
+// Most time sort Misc filters checks
+IF(AND(J4="Yes",J5="No",J6="No",M4="Yes",M5="No",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by Y"),
+IF(AND(J4="Yes",J5="No",J6="No",M4="Yes",M5="Yes",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (Y >= "&E6&") and (L >= "&E5&") order by Y"),
+IF(AND(J4="Yes",J5="No",J6="No",M4="Yes",M5="No",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by Y"),
+IF(AND(J4="Yes",J5="No",J6="No",M4="No",M5="Yes",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y >= "&E6&") and (L >= "&E5&") order by Y"),
+IF(AND(J4="Yes",J5="No",J6="No",M4="Yes",M5="Yes",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (Y >= "&E6&") and (L >= "&E5&") order by Y"),
+IF(AND(J4="Yes",J5="No",J6="No",M4="No",M5="Yes",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y >= "&E6&") and (L >= "&E5&") order by Y"),
+IF(AND(J4="Yes",J5="No",J6="No",M4="No",M5="No",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by Y"),
+
+
+// Times This Week sort filter checks
+IF(AND(J4="No",J5="Yes",J6="No",M4="No",M5="No",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by ((Y-Z)/60) DESC"),
+
+// Times This Week sort Misc filters checks
+IF(AND(J4="No",J5="Yes",J6="No",M4="Yes",M5="No",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by ((Y-Z)/60) DESC"),
+IF(AND(J4="No",J5="Yes",J6="No",M4="Yes",M5="Yes",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (Y >= "&E6&") and (L >= "&E5&") order by ((Y-Z)/60) DESC"),
+IF(AND(J4="No",J5="Yes",J6="No",M4="Yes",M5="No",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by ((Y-Z)/60) DESC"),
+IF(AND(J4="No",J5="Yes",J6="No",M4="No",M5="Yes",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y >= "&E6&") and (L >= "&E5&") order by ((Y-Z)/60) DESC"),
+IF(AND(J4="No",J5="Yes",J6="No",M4="Yes",M5="Yes",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (Y >= "&E6&") and (L >= "&E5&") order by ((Y-Z)/60) DESC"),
+IF(AND(J4="No",J5="Yes",J6="No",M4="No",M5="Yes",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y >= "&E6&") and (L >= "&E5&") order by ((Y-Z)/60) DESC"),
+IF(AND(J4="No",J5="Yes",J6="No",M4="No",M5="No",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by ((Y-Z)/60) DESC"),
+
+
+// TIG sort filter checks
+IF(AND(J4="No",J5="No",J6="Yes",M4="No",M5="No",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by L DESC"),
+
+// TIG sort Misc filters checks
+IF(AND(J4="No",J5="No",J6="Yes",M4="Yes",M5="No",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by L DESC"),
+IF(AND(J4="No",J5="No",J6="Yes",M4="Yes",M5="Yes",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (Y >= "&E6&") and (L >= "&E5&") order by L DESC"),
+IF(AND(J4="No",J5="No",J6="Yes",M4="Yes",M5="No",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by L DESC"),
+IF(AND(J4="No",J5="No",J6="Yes",M4="No",M5="Yes",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y >= "&E6&") and (L >= "&E5&") order by L DESC"),
+IF(AND(J4="No",J5="No",J6="Yes",M4="Yes",M5="Yes",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (Y-Z >= "&B7&") and (Z-AA >= "&B7&") and (Y >= "&E6&") and (L >= "&E5&") order by L DESC"),
+IF(AND(J4="No",J5="No",J6="Yes",M4="No",M5="Yes",M6="No"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (E<>'Exceptions') and (M = 1) and (Y >= "&E6&") and (L >= "&E5&") order by L DESC"),
+IF(AND(J4="No",J5="No",J6="Yes",M4="No",M5="No",M6="Yes"),
+QUERY(Members!A8:AA,"select A,B,C,D,E,H,I,J,K,L,M,Y,Z,AA,T where (A = 1) and (X = "&B8&") and (M = 1) and (T<>'In Progress') and (T<>'Exempt') and (Y >= "&E6&") and (L >= "&E5&") order by L DESC"),
+
+"No Names"),"Off")
